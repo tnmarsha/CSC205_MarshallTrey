@@ -4,11 +4,13 @@
   <li><a class="w3-black" href="#">Home</a></li>
   <li><a href="#">Create New Post</a></li>
   <li><a href="#">Delete Post</a></li>
-  <li><a href="#">Log Out</a></li>
+  <li><a href="logout.php">Log Out</a></li>
   <li><a href="#">Blog Home Page</a></li>
+  
 </ul>
 
 <body>
+
 
 
 </body>
@@ -51,6 +53,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-row">
         <div class="w3-col m8 s12">
           <p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>READ MORE »</b></button></p>
+		  
         </div>
         <div class="w3-col m4 w3-hide-small">
           <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
@@ -91,7 +94,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   
     <div class="w3-container w3-white">
       <h4><b>About Me</b></h4>
-      <p></p>
+      <p>Currently studying computer science at geneva college</p> 
     </div>
   </div><hr>
   
@@ -99,6 +102,9 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-card-2 w3-margin">
     <div class="w3-container w3-padding">
       <h4>Popular Posts</h4>
+	  <p><span class="w3-tag w3-gray w3-margin-bottom">
+	  <p><span class="w3-tag w3-gray w3-margin-bottom">
+	   <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">
     </div>
     
   </div>
