@@ -30,8 +30,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
 <!-- Header -->
 <header class="w3-container w3-center w3-padding-32"> 
-  <h1><b>MY BLOG</b></h1>
-  <p>Welcome to the blog of <span class="w3-tag">Trizzle Trey</span></p>
+  <img src="diamond.png" alt="Image" class="w3-left w3-margin-right" style="width:100px"> <h1><b>Welcome to the blog of Trizzle Trey</b></h1>
 </header>
 
 <!-- Grid -->
@@ -41,10 +40,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l8 s12">
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-    
+     <img src="c23d12f4c19f66daf5dfbbf62fc43e78.jpg" style="width:50%">
     <div class="w3-container w3-padding-8">
-      <h3><b>TITLE HEADING</b></h3>
-      <h5>Title description, <span class="w3-opacity">April 7, 2014</span></h5>
+      <h3><b>Life On A Boat</b></h3>
+      <h5> <span class="w3-opacity">April 7, 2014</span></h5>
     </div>
 
     <div class="w3-container">
@@ -53,7 +52,6 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <div class="w3-row">
         <div class="w3-col m8 s12">
           <p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>READ MORE »</b></button></p>
-		  
         </div>
         <div class="w3-col m4 w3-hide-small">
           <p><span class="w3-padding-large w3-right"><b>Comments  </b> <span class="w3-tag">0</span></span></p>
@@ -65,10 +63,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-  
+  <img src="mqdefault.jpg" style="width:100%">
     <div class="w3-container w3-padding-8">
-      <h3><b>BLOG ENTRY</b></h3>
-      <h5>Title description, <span class="w3-opacity">April 2, 2014</span></h5>
+      <h3><b>Life Without Video Games</b></h3>
+      <h5> <span class="w3-opacity">April 2, 2014</span></h5>
     </div>
 
     <div class="w3-container">
@@ -91,10 +89,11 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <div class="w3-col l4">
   <!-- About Card -->
   <div class="w3-card-2 w3-margin w3-margin-top">
-  
+  <img src="6.jpg" style="width:100%">
     <div class="w3-container w3-white">
-      <h4><b>About Me</b></h4>
-      <p>Currently studying computer science at geneva college</p> 
+      <h4><b>About Me</b></h4
+      <p>Currently studying computer science at geneva college</p>
+      <p>Also Plays Football, and is apart of the computer science club</p>	  
     </div>
   </div><hr>
   
@@ -102,11 +101,29 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   <div class="w3-card-2 w3-margin">
     <div class="w3-container w3-padding">
       <h4>Popular Posts</h4>
-	  <p><span class="w3-tag w3-gray w3-margin-bottom">
-	  <p><span class="w3-tag w3-gray w3-margin-bottom">
-	   <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">
     </div>
-    
+    <ul class="w3-ul w3-hoverable w3-white">
+      <li class="w3-padding-16">
+        <img src="video.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Top 10 Video Games</span><br>
+        <span>Sed mattis nunc</span>
+      </li>
+      <li class="w3-padding-16">
+        <img src="lebron.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Lebron Is A Punk</span><br>
+        <span>Praes tinci sed</span>
+      </li> 
+      <li class="w3-padding-16">
+        <img src="donald.jpg" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">Trump Does It Again</span><br>
+        <span>Ultricies congue</span>
+      </li>   
+      <li class="w3-padding-16 w3-hide-medium w3-hide-small">
+        <img src="superman.png" alt="Image" class="w3-left w3-margin-right" style="width:50px">
+        <span class="w3-large">How To Be a Superhero</span><br>
+        <span>Lorem ipsum dipsum</span>
+      </li>  
+    </ul>
   </div>
   <hr> 
  
