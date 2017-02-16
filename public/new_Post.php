@@ -1,3 +1,9 @@
+<?php
+include('../template/Layout.php');
+Layout::pageTop('Layout.php');
+?>
+
+
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=9">
 <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
