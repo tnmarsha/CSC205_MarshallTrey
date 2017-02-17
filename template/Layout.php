@@ -24,7 +24,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <div id ="container">
 	   
     <ul class="w3-navbar w3-border w3-light-grey">
-  <li><a href="#">Home</a></li>
+  <li><a href="index.php">Home</a></li>
   <li><a href="new_Post.php">Create New Post</a></li>
   <li><a href="#">Delete Post</a></li>
   <li><a href="logout.php">Log Out</a></li>
