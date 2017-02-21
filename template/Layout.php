@@ -18,6 +18,14 @@ echo <<<pageTop
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
+<style>
+#wrapper{
+	margin:auto;
+	width:800px;
+}
+label{display:block}
+
+</style>
 <head>
  <body>
 
@@ -32,6 +40,12 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
             </ul>
         </div>
 <div id ="container">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>MY BLOG</b></h1>
+  <p>Welcome to the blog of <span class="w3-tag">Trizzle Trey</span></p>
+</header>
 	
 pageTop;
 
@@ -42,8 +56,7 @@ public static function pageBottom()
 echo <<<pageBottom
 </div>
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
-  <button class="w3-btn w3-disabled w3-padding-large w3-margin-bottom">Previous</button>
-  <button class="w3-btn w3-padding-large w3-margin-bottom">Next »</button>
+  
   <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
 
 </body>
