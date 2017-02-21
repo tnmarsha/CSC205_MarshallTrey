@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
 	$date = date('y-m-d G:i;s');
 	$body = htmlentities($body);
 	if($title && $body && $category){
-	  $query = $db->query("INSERT INTO posts (user_id, title, body, category_id, posted) VALUES('$user_id','$tilte', '$body','$category', '$date')");
+	  $query = $db->query("INSERT INTO posts (user_id, title, body, category_id, posted)VALUES('$user_id','$tilte', '$body','$category', '$date')");
 	  if($query){
 		  echo "post added";
 	  }else{
@@ -55,4 +55,7 @@ Layout::pageTop('Layout.php');
 	</div>
 </body>
 </html>	
+<?php	
+Layout::PageBottom();
+?>
 			

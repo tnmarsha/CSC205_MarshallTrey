@@ -46,6 +46,14 @@ label{display:block}
   <h1><b>MY BLOG</b></h1>
   <p>Welcome to the blog of <span class="w3-tag">Trizzle Trey</span></p>
 </header>
+ <!-- Image header -->
+  <header class="w3-display-container w3-wide" id="home">
+    <img src="/public/asset/img/diamond.png" width="1400" height="300" align="middle">
+    <div class="w3-display-left w3-padding-xlarge">
+      <h1 class="w3-text-black">Trizzle's</h1>
+      <h1 class="w3-jumbo w3-text-black w3-hide-small"><b>Diamond BLOG</b></h1>
+    </div>
+  </header>
 	
 pageTop;
 
@@ -57,7 +65,8 @@ echo <<<pageBottom
 </div>
 <footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
   
-  <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+  <p>471 washington street</a></p>
+  <p>Leetsdale, Pa 15056 <a/></p>
 
 </body>
 </html>

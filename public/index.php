@@ -42,11 +42,11 @@ Layout::pageTop('Layout.php');
         </td>
 		</table>
 		<div id="categoryForm">
-		<form action="<?php echo $_server['PHP_SELF']?>" method="post">
-		    <label for="category"> Add New Category</label><input type="text" name="newCategory"/><input type= "submit" name=
-			"submit" value="submit"/>
-		</form>	
-    </div>	
+		    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+		        <label for="category"> Add New Category</label><input type="text" name="newCategory"/><input type= "submit" name=
+			    "submit" value="submit"/>
+		    </form>	
+        </div>	
     </div>	
 <?php	
 Layout::PageBottom();
