@@ -9,14 +9,18 @@ if(isset($_POST['submit'])){
 	//get the blog data
 	$title = $_POST['title'];
 	$body = $_POST['body'];
+	$startdate = $_POST['startdate'];
+	$enddate = $_POST['enddate'];
 	$category = $_POST['category'];
 	$title = $db->real_escape_string($title);
 	$body = $db->real_escape_string($body);
+	$startdate = $db->real_escape_string($startdate);
+	$enddate = $db->real_escape_string($enddate);
 	$user_id = $_SESSION['user_id'];
 	$date = date('y-m-d G:i;s');
 	$body = htmlentities($body);
-	if($title && $body && $category){
-	  $query = $db->query("INSERT INTO posts (user_id, title, body, category_id, posted)VALUES('$user_id','$tilte', '$body','$category', '$date')");
+	if($title && $body && $category && $startdate && $enddate){
+	  $query = $db->query("INSERT INTO posts (user_id, title, body, category_id, posted, startdate, enddate)VALUES('$user_id','$title', '$body','$category', '$date', '$startdate', $enddate)");
 	  if($query){
 		  echo "post added";
 	  }else{
@@ -39,6 +43,8 @@ Layout::pageTop('Layout.php');
 		        <label>Title:</label><input type="text" name="title" />
 			    <label for ="body"> Body:</label>
 			    <textarea name="body" cols=50 rows=10></textarea>
+				<label>Startdate:</label><input type="text" name="startdate" />
+				<label>Enddate:</label><input type="text" name="enddate" />
 			    <label> Category:</label>
 			    <select name="category">
 			        <?php  

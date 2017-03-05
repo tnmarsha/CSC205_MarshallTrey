@@ -26,6 +26,9 @@ if(isset($_POST['submit'])){
 }	
 include('../template/Layout.php');
 Layout::pageTop('Layout.php');
+$query = $db->prepare("SELECT post id, title,LEFT(body,150) AS body, startdate, enddate, category From posts INNER JOIN category ON category.category_id=posts.category_id");
+$query->execute();
+$query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
 
 ?>
 
@@ -48,6 +51,38 @@ Layout::pageTop('Layout.php');
 		    </form>	
         </div>	
     </div>	
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=9">
+<!--[if it IE 9]>
+<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></head>script>
+<![endif]-->
+<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+</head>
+<style>
+#container{
+	margin:auto;
+	width:800px;
+</style>
+<body>
+<div id="container">
+    <?php
+	    while($query->fetch()):
+	    $lastspace = strpos($body, ' ');
+	?>
+	<article>
+	<h2><?php echo $title?></h2>
+	<p><?php echo substr($body,0, $lastspace)."<a href='post.php?id=$post_id'>..</a>"?></p>
+	<p>Startdate: <?php echo $startdate?></p>
+	<p>Enddate: <?php echo $enddate?></p>
+	<p>Category: <?php echo $category?>
+	</article>
+<?php endwhile?>
+</div>
+</body>
+</html>
+
 <?php	
 Layout::PageBottom();
 ?>
