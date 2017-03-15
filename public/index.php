@@ -26,10 +26,29 @@ if(isset($_POST['submit'])){
 }	
 include('../template/Layout.php');
 Layout::pageTop('Layout.php');
-$query = $db->prepare("SELECT post id, title,LEFT(body,150) AS body, startdate, enddate, category From posts INNER JOIN category ON category.category_id=posts.category_id");
+//get record of database
+$record_count = $db->query("SELECT * FROM posts");
+// amount displayed 
+$per_page = 2;
+//number of pages
+$pages = ceil($record_count->num_rows/$per_page);
+// get page number
+if (isset($_GET['p']) && is_numeric($_GET['p'])){
+	$page = $_GET['p'];
+}else{
+	$page =1;
+}
+if ($page<=0)
+	$start = 0;
+else
+	$start = $page * $per_page - $per_page;
+$prev = $page - 1;
+$next = $page + 1;
+
+$query = $db->prepare("SELECT post id, title,LEFT(body,150) AS body, startdate, enddate, 
+category From posts INNER JOIN category ON category.category_id=posts.category_id limit $start,$per_page");
 $query->execute();
 $query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
-
 ?>
 
     <div id="mainContent"> 
@@ -79,6 +98,15 @@ $query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
 	<p>Category: <?php echo $category?>
 	</article>
 <?php endwhile?>
+
+<?php
+    if($prev > 0){
+		echo "<a href='index.php?p=$prev'>Prev</a>";
+	}
+	if($page < $pages) {
+		echo "<a href='index.php?p=$next'>Next</a>";
+	}
+?>
 </div>
 </body>
 </html>
