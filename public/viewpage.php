@@ -2,7 +2,7 @@
 
 // Load all application files and configurations
 
-require($_SERVER[ 'DOCUMENT_ROOT' ] '../includes/db_connect.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/../includes/application_includes.php');
 
 // Include the HTML layout class
 
@@ -10,7 +10,7 @@ include('../template/Layout.php');
 
 // Connect to the database
 
-include('../includes/db_connect.php');
+$db = new Database(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // Initialize variables
 
