@@ -45,7 +45,7 @@ else
 $prev = $page - 1;
 $next = $page + 1;
 
-$query = $db->prepare("SELECT post id, title,LEFT(body,150) AS body, startdate, enddate, 
+$query = $db->prepare("SELECT post id, title, body, startdate, enddate, 
 category From posts INNER JOIN category ON category.category_id=posts.category_id limit $start,$per_page");
 $query->execute();
 $query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
@@ -55,7 +55,7 @@ $query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
         <table>
             <tr>
 			    <td>Total Blog Post</td>
-                <td><?php echo $comment_count->num_rows?>
+                <td><?php echo $post_count->num_rows?>
             </tr>
 			<tr>
                 <td>Total Comments</td>
@@ -66,7 +66,7 @@ $query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
 		<div id="categoryForm">
 		    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
 		        <label for="category"> Add New Category</label><input type="text" name="newCategory"/><input type= "submit" name=
-			    "submit" value="submit"/>
+			    "submit" value="Submit"/>
 		    </form>	
         </div>	
     </div>	
@@ -92,7 +92,7 @@ $query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
 	?>
 	<article>
 	<h2><?php echo $title?></h2>
-	<p><?php echo substr($body,0, $lastspace)."<a href='post.php?id=$post_id'>..</a>"?></p>
+	<p><?php echo $body, "<a href='post.php?id=$post_id'>..</a>"?></p>
 	<p>Startdate: <?php echo $startdate?></p>
 	<p>Enddate: <?php echo $enddate?></p>
 	<p>Category: <?php echo $category?>

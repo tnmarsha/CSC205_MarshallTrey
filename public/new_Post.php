@@ -14,13 +14,15 @@ if(isset($_POST['submit'])){
 	$category = $_POST['category'];
 	$title = $db->real_escape_string($title);
 	$body = $db->real_escape_string($body);
+	//print_r($_POST); die();
 	$startdate = $db->real_escape_string($startdate);
 	$enddate = $db->real_escape_string($enddate);
+	// die($startdate);
 	$user_id = $_SESSION['user_id'];
 	$date = date('y-m-d G:i;s');
 	$body = htmlentities($body);
 	if($title && $body && $category && $startdate && $enddate){
-	  $query = $db->query("INSERT INTO posts (user_id, title, body, category_id, posted, startdate, enddate)VALUES('$user_id','$title', '$body','$category', '$date', '$startdate', $enddate)");
+	  $query = $db->query("INSERT INTO posts (user_id, title, body, category_id, posted, startdate, enddate)VALUES('$user_id','$title', '$body','$category', '$date', '$startdate', '$enddate')");
 	  if($query){
 		  echo "post added";
 	  }else{

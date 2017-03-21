@@ -34,9 +34,8 @@ label{display:block}
     <ul class="w3-navbar w3-border w3-light-grey">
   <li><a href="index.php">Home</a></li>
   <li><a href="new_Post.php">Create New Post</a></li>
-  <li><a href="#">Delete Post</a></li>
   <li><a href="logout.php">Log Out</a></li>
-  <li><a href="#">Blog Home Page</a></li>
+  <li><a href="viewpage.php">viewpage</a></li>
             </ul>
         </div>
 <div id ="container">
