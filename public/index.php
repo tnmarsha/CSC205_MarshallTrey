@@ -66,7 +66,7 @@ $query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
 		<div id="categoryForm">
 		    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
 		        <label for="category"> Add New Category</label><input type="text" name="newCategory"/><input type= "submit" name=
-			    "submit" value="Submit"/>
+			    "submit" value="submit"/>
 		    </form>	
         </div>	
     </div>	
