@@ -108,13 +108,13 @@ if (is_numeric($_POST['user_id']))
 
 $id = $_POST['user_id'];
 
-$title = mysql_real_escape_string(htmlspecialchars($_POST['title']));
+$title = $db->real_escape_string(htmlspecialchars($_POST['title']));
 
-$body = mysql_real_escape_string(htmlspecialchars($_POST['body']));
+$body = $db->real_escape_string(htmlspecialchars($_POST['body']));
 
-$startdate = mysql_real_escape_string(htmlspecialchars($_POST['startdate']));
+$startdate = $db->real_escape_string(htmlspecialchars($_POST['startdate']));
 
-$enddate = mysql_real_escape_string(htmlspecialchars($_POST['enddate']));
+$enddate = $db->real_escape_string(htmlspecialchars($_POST['enddate']));
 
 // check that title/body/startdate/enddate fields are filled in
 
@@ -140,7 +140,7 @@ else
 
 // save the data to the database
 
-$db->query("UPDATE players SET title='$title', body='$body, startdate='$startdate,  enddateate='$enddate ' WHERE user_id='$id'")
+$db->query("UPDATE posts SET title='$title', body='$body, startdate='$startdate,  enddate='$enddate ' WHERE user_id='$id'")
 
 or die(mysql_error());
 
@@ -184,7 +184,7 @@ if (isset($_GET['user_id']) && is_numeric($_GET['user_id']) && $_GET['user_id'] 
 
 $id = $_GET['user_id'];
 
-$result = $db->query("SELECT * FROM players WHERE user_id=$id")
+$result = $db->query("SELECT * FROM posts WHERE user_id=$id")
 
 or die(mysql_error());
 
