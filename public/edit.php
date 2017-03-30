@@ -140,7 +140,7 @@ else
 
 // save the data to the database
 
-$db->query("UPDATE posts SET title='$title', body='$body, startdate='$startdate,  enddate='$enddate ' WHERE user_id='$id'")
+$db->query("UPDATE posts SET title='$title', body='$body', startdate='$startdate',  enddate='$enddate' WHERE user_id='$id'")
 
 or die(mysql_error());
 
