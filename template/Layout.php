@@ -36,6 +36,7 @@ label{display:block}
   <li><a href="new_Post.php">Create New Post</a></li>
   <li><a href="logout.php">Log Out</a></li>
   <li><a href="viewpage.php">viewpage</a></li>
+  <li><a href="login.php">login</a></li>
             </ul>
         </div>
 <div id ="container">

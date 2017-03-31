@@ -12,8 +12,13 @@ Displays all data from 'players' table
 
 
 // connect to the database
-
+session_start();
 include('../includes/db_connect.php');
+if(!isset($_SESSION['user_id'])){
+    header('Location: login.php');
+	exit();
+}
+
 
 
 
@@ -47,7 +52,7 @@ while($row = $result->fetch_array()) {
 
 echo "<tr>";
 
-echo '<td>' . $row['user_id'] . '</td>';
+echo '<td>' . $row['post'] . '</td>';
 
 echo '<td>' . $row['title'] . '</td>';
 
@@ -57,9 +62,9 @@ echo '<td>' . $row['startdate'] . '</td>';
 
 echo '<td>' . $row['enddate'] . '</td>';
 
-echo '<td><a href="edit.php?user_id=' . $row['user_id'] . '">Edit</a></td>';
+echo '<td><a href="edit.php?post=' . $row['post'] . '">Edit</a></td>';
 
-echo '<td><a href="delete.php?user_id=' . $row['user_id'] . '">Delete</a></td>';
+echo '<td><a href="delete.php?post=' . $row['post'] . '">Delete</a></td>';
 
 echo "</tr>";
 

@@ -50,7 +50,7 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 
 <form action="" method="post">
 
-<input type="hidden" name="user_id" value="<?php echo $id; ?>"/>
+<input type="hidden" name="post" value="<?php echo $id; ?>"/>
 
 <div>
 
@@ -88,7 +88,12 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 
 // connect to the database
 
+session_start();
 include('../includes/db_connect.php');
+if(!isset($_SESSION['user_id'])){
+    header('Location: login.php');
+	exit();
+}
 
 
 
@@ -100,7 +105,7 @@ if (isset($_POST['submit']))
 
 // confirm that the 'id' value is a valid integer before getting the form data
 
-if (is_numeric($_POST['user_id']))
+if (is_numeric($_POST['post']))
 
 {
 
@@ -140,7 +145,7 @@ else
 
 // save the data to the database
 
-$db->query("UPDATE posts SET title='$title', body='$body', startdate='$startdate',  enddate='$enddate' WHERE user_id='$id'")
+$db->query("UPDATE posts SET title='$title', body='$body', startdate='$startdate',  enddate='$enddate' WHERE post='$id'")
 
 or die(mysql_error());
 
@@ -176,15 +181,15 @@ else
 
 // get the 'id' value from the URL (if it exists), making sure that it is valid (checing that it is numeric/larger than 0)
 
-if (isset($_GET['user_id']) && is_numeric($_GET['user_id']) && $_GET['user_id'] > 0)
+if (isset($_GET['post']) && is_numeric($_GET['post']) && $_GET['post'] > 0)
 
 {
 
 // query db
 
-$id = $_GET['user_id'];
+$id = $_GET['post'];
 
-$result = $db->query("SELECT * FROM posts WHERE user_id=$id")
+$result = $db->query("SELECT * FROM posts WHERE post=$id")
 
 or die(mysql_error());
 
