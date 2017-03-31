@@ -14,7 +14,7 @@ Allows user to edit specific entry in database
 
 // since this form is used multiple times in this file, I have made it a function that is easily reusable
 
-function renderForm($id, $title, $body, $startdate, $enddate, $error)
+function renderForm($id, $username, $password, $error)
 
 {
 
@@ -26,7 +26,7 @@ function renderForm($id, $title, $body, $startdate, $enddate, $error)
 
 <head>
 
-<title>Edit Post</title>
+<title>Edit User</title>
 
 </head>
 
@@ -48,21 +48,19 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 
 
 
-<form action="" method="post">
+<form action="" method="user_id">
 
-<input type="hidden" name="post" value="<?php echo $id; ?>"/>
+<input type="hidden" name="user_id" value="<?php echo $id; ?>"/>
 
 <div>
 
 <p><strong>ID:</strong> <?php echo $id; ?></p>
 
-<strong>Title: *</strong> <input type="text" name="title" value="<?php echo $title; ?>"/><br/>
+<strong>UserName: *</strong> <input type="text" name="username" value="<?php echo $username; ?>"/><br/>
 
-<strong>Body: *</strong> <input type="text" name="body" value="<?php echo $body; ?>"/><br/>
+<strong>Password: *</strong> <input type="text" name="password" value="<?php echo $password; ?>"/><br/>
 
-<strong>Startdate: *</strong> <input type="text" name="startdate" value="<?php echo $startdate; ?>"/><br/>
 
-<strong>Enddate: *</strong> <input type="text" name="enddate" value="<?php echo $enddate; ?>"/><br/>
 
 <p>* Required</p>
 
@@ -105,25 +103,23 @@ if (isset($_POST['submit']))
 
 // confirm that the 'id' value is a valid integer before getting the form data
 
-if (is_numeric($_POST['post']))
+if (is_numeric($_POST['user_id']))
 
 {
 
 // get form data, making sure it is valid
 
-$id = $_POST['post'];
+$id = $_POST['user_id'];
 
-$title = $db->real_escape_string(htmlspecialchars($_POST['title']));
+$username = $db->real_escape_string(htmlspecialchars($_POST['username']));
 
-$body = $db->real_escape_string(htmlspecialchars($_POST['body']));
+$password = $db->real_escape_string(htmlspecialchars($_POST['password']));
 
-$startdate = $db->real_escape_string(htmlspecialchars($_POST['startdate']));
 
-$enddate = $db->real_escape_string(htmlspecialchars($_POST['enddate']));
 
 // check that title/body/startdate/enddate fields are filled in
 
-if ($title == '' || $body == '' || $startdate == ''|| $enddate == '')
+if ($username == '' || $password == '' )
 
 {
 
@@ -135,7 +131,7 @@ $error = 'ERROR: Please fill in all required fields!';
 
 //error, display form
 
-renderForm($id, $title, $body, $startdate, $enddate, $error);
+renderForm($id, $username, $password,  $error);
 
 }
 
@@ -145,7 +141,7 @@ else
 
 // save the data to the database
 
-$db->query("UPDATE posts SET title='$title', body='$body', startdate='$startdate',  enddate='$enddate' WHERE post='$id'")
+$db->query("UPDATE user SET username='$username', password='$password' WHERE user_id='$id'")
 
 or die(mysql_error());
 
@@ -153,7 +149,7 @@ or die(mysql_error());
 
 // once saved, redirect back to the view page
 
-header("Location: viewpage.php");
+header("Location: admin.php");
 
 }
 
@@ -181,15 +177,15 @@ else
 
 // get the 'id' value from the URL (if it exists), making sure that it is valid (checing that it is numeric/larger than 0)
 
-if (isset($_GET['post']) && is_numeric($_GET['post']) && $_GET['post'] > 0)
+if (isset($_GET['user_id']) && is_numeric($_GET['user_id']) && $_GET['user_id'] > 0)
 
 {
 
 // query db
 
-$id = $_GET['post'];
+$id = $_GET['user_id'];
 
-$result = $db->query("SELECT * FROM posts WHERE post=$id")
+$result = $db->query("SELECT * FROM user WHERE user_id=$id")
 
 or die(mysql_error());
 
@@ -207,16 +203,14 @@ if($row)
 
 // get data from db
 
-$title = $row['title'];
+$username = $row['username'];
 
-$body = $row['body'];
+$password = $row['password'];
 
-$startdate = $row['startdate'];
 
-$enddate = $row['enddate'];
 // show form
 
-renderForm($id, $title, $body, $startdate, $enddate, '');
+renderForm($id, $username, $password, '');
 
 }
 
