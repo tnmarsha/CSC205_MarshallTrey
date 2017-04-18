@@ -7,6 +7,24 @@ if(!isset($_SESSION['user_id'])){
 }
 if(isset($_POST['submit'])){
 	//get the blog data
+if(isset($_POST['submit'])){ 
+    //stores uploaded image 
+    $target = "images/".basename($_FILES['image']['name']);
+	//get all the submitted data from the form
+	$image = $_FILES['image']['name'];
+	$text = $_POST['text'];
+	$sql = "INSERT INTO images (image, text) VALUES('$image', '$text')";
+	mysqli_query($db, $sql);///stores the submitted data into the database table
+	// now lets move the uploaded image into the folder: img
+if (move_uploaded_file($_FILES['image']['tmp_name'], $target)){
+	$msg = "image uploaded successfully";
+}else{
+	$msg = " there was a problem uploading image";
+
+
+}
+}
+
 	$title = $_POST['title'];
 	$body = $_POST['body'];
 	$startdate = $_POST['startdate'];
@@ -42,6 +60,11 @@ Layout::pageTop('Layout.php');
     <div id = "wrapper">
 	    <div id = "content">
 	        <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
+			    <input type="hidden" name="size" value="1000000" />
+				<div>
+				<input type="file" name="image"
+				<div>
+				<textarea name="text" cols="40" rows="4" placeholder="say something about image...."></textarea>
 		        <label>Title:</label><input type="text" name="title" />
 			    <label for ="body"> Body:</label>
 			    <textarea name="body" cols=50 rows=10></textarea>
@@ -59,6 +82,8 @@ Layout::pageTop('Layout.php');
 			    <br/>
 			    <input type="submit" name="submit" value="Submit"/>
 		    </form>
+			</div>
+			</div>
 	    </div>
 	</div>
 </body>
