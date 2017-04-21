@@ -38,7 +38,7 @@ echo "<p><b>View Post</b>";
 
 echo "<table border='1' cellpadding='10'>";
 
-echo "<tr> <th>ID</th> <th>Title</th> <th>Body</th> <th>Startdate</th> <th>Enddate</th></tr>";
+echo "<tr> <th>ID</th> <th>Title</th> <th>Body</th> <th>Startdate</th> <th>Enddate</th> <th>Image</th> </tr>";
 
 
 
@@ -61,6 +61,8 @@ echo '<td>' . $row['body'] . '</td>';
 echo '<td>' . $row['startdate'] . '</td>';
 
 echo '<td>' . $row['enddate'] . '</td>';
+
+echo '<td><img src="/public/asset/img/'. $row["image"].'"width="100px"/></td>';
 
 echo '<td><a href="edit.php?post=' . $row['post'] . '">Edit</a></td>';
 

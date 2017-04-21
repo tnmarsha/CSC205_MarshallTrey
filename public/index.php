@@ -45,10 +45,9 @@ else
 $prev = $page - 1;
 $next = $page + 1;
 
-$query = $db->prepare("SELECT post id, title, body, startdate, enddate, 
-category From posts INNER JOIN category ON category.category_id=posts.category_id limit $start,$per_page");
+$query = $db->prepare("SELECT post id, image, title, body, startdate, enddate, category From posts INNER JOIN category ON category.category_id=posts.category_id limit $start,$per_page");
 $query->execute();
-$query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
+$query->bind_result($post_id, $image, $title, $body, $startdate, $enddate, $category);
 ?>
 
     <div id="mainContent"> 
@@ -91,6 +90,7 @@ $query->bind_result($post_id, $title, $body, $startdate, $enddate, $category);
 	    $lastspace = strpos($body, ' ');
 	?>
 	<article>
+	<p><img src="/public/asset/img/<?php echo $image ?>"></p>
 	<h2><?php echo $title?></h2>
 	<p><?php echo $body, "<a href='post.php?id=$post_id'>..</a>"?></p>
 	<p>Startdate: <?php echo $startdate?></p>

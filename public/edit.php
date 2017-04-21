@@ -14,7 +14,7 @@ Allows user to edit specific entry in database
 
 // since this form is used multiple times in this file, I have made it a function that is easily reusable
 
-function renderForm($id, $title, $body, $startdate, $enddate, $error)
+function renderForm($id, $title, $body, $startdate, $enddate, $image, $error)
 
 {
 
@@ -63,6 +63,8 @@ echo '<div style="padding:4px; border:1px solid red; color:red;">'.$error.'</div
 <strong>Startdate: *</strong> <input type="text" name="startdate" value="<?php echo $startdate; ?>"/><br/>
 
 <strong>Enddate: *</strong> <input type="text" name="enddate" value="<?php echo $enddate; ?>"/><br/>
+
+<strong>Image: *</strong> <input type="file" name="image" value="<?php echo $image; ?>"/><br/>
 
 <p>* Required</p>
 
@@ -121,9 +123,11 @@ $startdate = $db->real_escape_string(htmlspecialchars($_POST['startdate']));
 
 $enddate = $db->real_escape_string(htmlspecialchars($_POST['enddate']));
 
+$image = $db->real_escape_string(htmlspecialchars($_POST['image']));
+
 // check that title/body/startdate/enddate fields are filled in
 
-if ($title == '' || $body == '' || $startdate == ''|| $enddate == '')
+if ($title == '' || $body == '' || $startdate == ''|| $enddate == '' || $image == '')
 
 {
 
@@ -135,7 +139,7 @@ $error = 'ERROR: Please fill in all required fields!';
 
 //error, display form
 
-renderForm($id, $title, $body, $startdate, $enddate, $error);
+renderForm($id, $title, $body, $startdate, $enddate, $image, $error);
 
 }
 
@@ -145,7 +149,7 @@ else
 
 // save the data to the database
 
-$db->query("UPDATE posts SET title='$title', body='$body', startdate='$startdate',  enddate='$enddate' WHERE post='$id'")
+$db->query("UPDATE posts SET title='$title', body='$body', startdate='$startdate',  enddate='$enddate' ,  image='$image' WHERE post='$id'")
 
 or die(mysql_error());
 
@@ -214,9 +218,11 @@ $body = $row['body'];
 $startdate = $row['startdate'];
 
 $enddate = $row['enddate'];
+
+$image = $row['image'];
 // show form
 
-renderForm($id, $title, $body, $startdate, $enddate, '');
+renderForm($id, $title, $body, $startdate, $enddate,  $image, '');
 
 }
 
